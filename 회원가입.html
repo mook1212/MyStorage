@@ -5,218 +5,193 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <title>Document</title>
     <style>
-        table {margin: auto;}
+        table {
+            margin: auto;
+        }
 
-        tr>th {text-align: right;}
+        .button {
+            text-align: center;
+        }
 
-        #header {text-align: center;}
+        tr>th {
+            text-align: right;
+        }
 
-        .buttons {text-align: center;}
+        #header {
+            text-align: center;
+        }
+
+        #nameresult {
+            font-size: 13px;
+
+        }
     </style>
 </head>
 
 <body>
-    <form action=dest.html id="frm">
+
+    <form action="" id="frm">
         <table class="table">
-            <tr>
-                <th colspan="3" id="header">회원 가입 정보 입력</th>
-            </tr>
 
             <tr>
-                <th>아이디 :</th>
-                <td colspan="2"><input type="text" id="id">&nbsp<button type="button">중복확인</button></td>
+                <th colspan="3" id="header">회원가입 정보 입력</th>
             </tr>
             <tr>
-                <th>패스워드 :</th>
-                <td colspan="2"><input type="password" id="inputpw"></td>
+                <th>아이디:</th>
+                <td colspan="2"><input type="text" id="id">
+                    <button type="button" id="idcheck">중복확인</button>
+                </td>
+
+
+
             </tr>
             <tr>
-                <th>패스워드 확인 :</th>
-                <td><input type="password" id="checkpw"></td>
+                <th>패스워드:</th>
+                <td colspan="2"><input type="text" id="pw"></td>
+
+            </tr>
+            <tr>
+                <th>패스워드 확인:</th>
+                <td><input type="text" id="pwbtn"></td>
                 <td id="result"></td>
             </tr>
             <tr>
-                <th>이름 :</th>
-                <td colspan="2"><input type="text" id="name"></td>
+                <th>이름:</th>
+                <td colspan="2"><input type="text" id="name">
+                    <div id="nameresult"></div>
+                </td>
+
             </tr>
             <tr>
-                <th>전화번호 :</th>
-                <td colspan="2"><input type="text" id="phone"></td>
+                <th>전화번호:</th>
+                <td colspan="2"><input type="text" id="call">
+                    <div id="callresult"></div>
+                </td>
             </tr>
             <tr>
-                <th>이메일 :</th>
-                <td colspan="2"><input type="text" id="email"></td>
+                <th>이메일:</th>
+                <td colspan="2"><input type="text" id="email">
+                    <div id="emailresult"></div>
+                </td>
             </tr>
             <tr>
-                <th>우편번호 :</th>
-                <td colspan="2"><input type="text" id="postcode" placeholder="우편번호">&nbsp<input type="button"
-                        onclick="postcode()" value="우편번호 찾기" id="btnsearch"></td>
+                <th>우편번호:</th>
+                <td colspan="2"><input type="text" placeholder="우편번호" id="postcode">&nbsp <input type="button"
+                        onclick="sample4_execDaumPostcode()" value="우편번호 찾기"></td>
             </tr>
             <tr>
-                <th>주소1 :</th>
-                <td colspan="2"><input type="text" id="address1" placeholder="주소"></td>
+                <th>주소1</th>
+                <td colspan="2"><input type="text" id="Address1" placeholder="주소"></td>
             </tr>
             <tr>
-                <th>주소2 :</th>
-                <td colspan="2"><input type="text" id="address2" placeholder="상세주소"></td>
+                <th>주소2</th>
+                <td colspan="2"><input type="text" id="Address2" placeholder="상세주소"></td>
+            </tr>
+            <tr class="button">
+                <td colspan="3"><button>회원가입</button>&nbsp<button>다시입력</button></td>
+
             </tr>
 
-            <tr class="buttons">
-                <td colspan="3"><button>회원가입</button>&nbsp<button type="button">다시 입력</button></td>
-            </tr>
         </table>
     </form>
-    <script>
-        // 패스워드 확인
-        let inputPw = document.getElementById("inputpw");
-        let checkPw = document.getElementById("checkpw");
-        let result = document.getElementById("result");
-
-        checkPw.onkeyup = function () {
-            if (inputPw.value == checkPw.value) {
-                result.innerHTML = "패스워드가 일치합니다.";
-            } else {
-                result.innerHTML = "패스워드가 일치하지 않습니다.";
-            }
-        }
 
 
-        // 우편번호
-        document.getElementById("btnsearch").onclick = function () {
-            new daum.Postcode({
-                oncomplete: function (data) {
 
-                    document.getElementById("postcode").value = data.zonecode;
-                    document.getElementById("address1").value = data.jibunAddress;
-
-                }
-            }).open();
-        }
-
-
-        let inputId = document.getElementById("id");
-        let inputName = document.getElementById("name");
-        let inputPhone = document.getElementById("phone");
-        let inputEmail = document.getElementById("email");
-
-        let frm = document.getElementById("frm");
-
-        frm.onsubmit = function () {
-
-            // 필수 입력값
-            if (inputId.value == "" |
-                inputPw.value == "" |
-                inputName.value == "") {
-                Swal.fire({
-                    title: "Error!",
-                    text: "아이디, 패스워드, 이름은 필수 입력 항목입니다.",
-                    icon: "error",
-                    confirmButtonText: "확인"
-                })
-                return false;
-            }
-
-
-            // 1. ID 유효성 검사
-            let idRegex = /^[a-z0-9_]{8,14}$/;
-
-            if (!idRegex.test(inputId.value)) {
-                Swal.fire({
-                    title: "Error!",
-                    text: "아이디 형식이 잘못되었습니다.",
-                    icon: "error",
-                    confirmButtonText: "확인"
-                }).then(function () {
-                    inputId.focus();
-                })
-                inputId.value = "";
-                return false;
-            }
-
-            // 2. PW - 유효성 검사
-            let pwRegex = /^[A-Za-z0-9~!@#$%]{10,20}$/;
-
-            if (!pwRegex.test(inputPw.value)) {
-                Swal.fire({
-                    title: "Error!",
-                    text: "패스워드가 잘못되었습니다.",
-                    icon: "error",
-                    confirmButtonText: "확인"
-                }).then(function () {
-                    inputPw.focus();
-                })
-                inputPw.value = "";
-                return false;
-            }
-            // 2. PW - 불일치, 회원가입 alert
-            if (inputPw.value != checkPw.value) {
-                Swal.fire({
-                    title: "Error!",
-                    text: "패스워드가 일치하지 않습니다.",
-                    icon: "error",
-                    confirmButtonText: "확인"
-                }).then(function () {
-                    inputPw.focus();
-                })
-                inputPw.value = "";
-                checkPw.value = "";
-                return false;
-            }
-
-            // 3. 이름 유효성 검사
-            let nameRegex = /^[가-힣]{1,5}$/;
-
-            if (!nameRegex.test(inputName.value)) {
-                Swal.fire({
-                    title: "Error!",
-                    text: "이름 형식이 잘못되었습니다.",
-                    icon: "error",
-                    confirmButtonText: "확인"
-                }).then(function () {
-                    inputName.focus();
-                })
-                inputName.value = "";
-                return false;
-            }
-
-            // 4. 전화번호 유효성 검사
-            let phoneRegex = /^01\d\d{3,4}\d{4}$/;
-
-            if (!phoneRegex.test(inputPhone.value)) {
-                Swal.fire({
-                    title: "Error!",
-                    text: "전화번호 형식이 잘못되었습니다.",
-                    icon: "error",
-                    confirmButtonText: "확인"
-                }).then(function () {
-                    inputPhone.focus();
-                })
-                inputPhone.value = "";
-                return false;
-            }
-
-            // 5. 이메일 유효성 검사
-            let emailRegex = /^[a-zA-Z0-9]{1,20}@[a-zA-Z0-9]{1,20}\.[a-zA-Z0-9]{1,10}$/;
-
-            if (!emailRegex.test(inputEmail.value)) {
-                Swal.fire({
-                    title: "Error!",
-                    text: "이메일 형식이 잘못되었습니다.",
-                    icon: "error",
-                    confirmButtonText: "확인"
-                }).then(function () {
-                    inputEmail.focus();
-                })
-                inputEmail.value = "";
-                return false;
-            }
-        }
-
-    </script>
 </body>
+<script>
+    let pwbtn = document.getElementById("pwbtn")
+    let pw = document.getElementById("pw")
+    let result = document.getElementById("result")
+    let idcheck = document.getElementById("idcheck")
+    let inputid = document.getElementById("id")
+    let inputname = document.getElementById("name")
+    let nameresult = document.getElementById("nameresult")
+    let inputcall = document.getElementById("call")
+    let callresult = document.getElementById("callresult")
+    let inputemail = document.getElementById("email")
+    let emailresult = document.getElementById("emailresult")
+
+    let nresult;
+    let cresult;
+    let eresult;
+
+    //패스워드일치 검사
+    pwbtn.onkeyup = function () {
+        if (pw.value == pwbtn.value) {
+            result.innerHTML = "일치합니다."
+        } else {
+            result.innerHTML = "일치하지않습니다."
+        }
+    }
+    //아아디 중복검사
+    idcheck.onclick = function () {
+        let idregex = /^[a-z0-9_]{8,14}$/;
+
+        if (!idregex.test(inputid.value)) {
+            Swal.fire({
+                title: "Error!",
+                text: "아이디가잘못되었습니다.",
+                icon: "error",
+                confirmButtonText: "확인"
+            }).then(function () {
+                inputPw.focus();
+            })
+            inputPw.value = "";
+            return false;
+        }
+
+
+    }
+    //우편번호 찾기.
+
+    function sample4_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function (data) {
+                var roadAddr = data.roadAddress;
+                document.getElementById('postcode').value = data.zonecode;//우편번호
+                document.getElementById("Address1").value = roadAddr;//도로명주소
+                document.getElementById("Address2").value = data.jibunAddress;//지번주소
+            }
+        }).open();
+        return resultpw1 && resultpw2 && resultname && resultphone && email
+    }
+
+    inputname.onkeyup = function () {
+        let nameregex = /^[가-힣]{1,5}$/gm;
+        if (!nameregex.test(inputname.value) && inputname.value !== "") {
+            nameresult.innerHTML = "한글 5글자이하로 다시입력해주세요."
+        } else {
+            nameresult.innerHTML = ""
+            nresult = true;
+
+        }
+    }
+    inputcall.onkeyup = function () {
+        let callregex = /^(?:(010\d{4})|(01[1|6|7|8|9]-\d{3,4}))(\d{4})$/;
+        if (!callregex.test(inputcall.value) && inputcall.value !== "") {
+            callresult.innerHTML = "올바른 전화번호를 입력해주세요."
+        } else {
+            callresult.innerHTML = ""
+
+        }
+
+    }
+    inputemail.onkeyup = function () {
+        let emailregex = /.+@[a-z]+\.[a-z]+/;
+        if (!emailregex.test(inputemail.value) && inputemail.value !== "") {
+            emailresult.innerHTML = "올바른 이메일을 입력해주세요."
+        } else {
+            emailresult.innerHTML = ""
+        }
+    }
+
+
+
+</script>
+
+
 </html>
