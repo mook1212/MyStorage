@@ -113,17 +113,89 @@ pro.then(()=> {
 ```
 <br>
 
-### 12 . async
+### 12 . async/await
+- promise를 간단하게 사용하기 위해 사용
 - 함수앞에 async를 붙여 promise 처럼 사용이 가능하다. 단 성공만 가능하다
- - promise를 사용할 때는 .catch()문으로 에러 핸들링 가능 but async/await은 에러 핸들링 기능이 따로 없어 try-catch() 문을 활용해야한다.
- promise는 .then() 지옥의 가능성이 있어,  코드가 길어질수록 async/await문을 사용하면 가독성이 좋다.
+- promise를 사용할 때는 .catch()문으로 에러 핸들링 가능 but async/await은 에러 핸들링 기능이 따로 없어 try-catch() 문을 활용해야한다.
+promise는 .then() 지옥의 가능성이 있어,  코드가 길어질수록 async/await문을 사용하면 가독성이 좋다.
+- await은 async func안에서 then과 같은 의미로 대신 사용이 가능한 문법
 
 ```
 async function 더하기(){
-  return 1 + 1 
+  var 어려운연산 = new Promise((성공, 실패)=>{
+    실패();
+  });
+  try {  var 결과 = await 어려운연산 }
+  catch { 어려운연산 Promise가 실패할 경우 실행할 코드 }
+}
+```
+### 13. 호이스팅
+스코프 안에 있는 선언들을 모두 스코프의 최상위로 끌어 올리는것 
+var 키워드나 함수 선언문 같은 경우는 코드 실행 전 자바스크립트 내부에서 미리 변수를 선언하고 undefined로 초기화를 해놓는다.
+let 키워드, const 키워드와 함수 표현식도 호이스팅이 발생하긴 하나 변수를 선언만 해놓을 뿐 초기화하지 않는다. 초기화는 변수 선언문을 만났을 때 수행한다.
+
+#### 호이스팅 예제 
+
+```
+console.log(num);
+var num;
+num = 3;
+console.log(num);
+
+var viewNum = function() {
+	console.log(num); // undefined
+	var num;
+	num = '100';
+	console.log(num);
 }
 
-더하기().then(function(결과){
-  console.log(결과)
-});
+viewNum();
+
+
+호이스팅이 발생하면 이런식으로 변함 
+
+var num = undefined;
+var viewNum = undefined;
+
+console.log(num) // undefined
+
+num = 3
+console.log(num) // 3
+
+viewNum = function() {
+    var num = undefined;
+    
+    console.log(num);
+    num = 100
+    console.log(num);
+}
+
+viewNum()
 ```
+
+### 14.클로져
+
+클로저란 함수와 해당 함수가 선언된 렉시컬 환경의 조합이다. 외부 함수가 반환된 후에도 외부 함수의 변수 범위 체인에 접근할 수 있는 함수이다. 전역 변수의 사용을 억제하고, 정보를 은닉하기 위해 사용한다. 
+
+``` 
+var text = 'Hello, ';
+
+function greeting() {
+  var name = 'Pewww';
+  
+  return function() {
+    console.log(text + name);
+  }
+}
+
+var g = greeting();
+g(); // 'Hello, Pewww' 출력 
+```
+
+### 15. 이벤트 버블링이 무엇인가.
+어떤 요소에 대한 이벤트가 발생했을 때 그 요소의 부모까지 이벤트가 전달되어지는 것을 말합니다.
+이러한 이벤트 버블링을 막기위해 e.stopPropagation을 호출하면 이벤트 전파를 막고 해당 이벤트만 실행시킬 수 있다. 
+
+### 16. 실행 컨텍스트
+- 자바스크립트 코드가 실행되고 연산되는 범위를 나타내는 추상적인 개념.
+우리가 코드를 작성하고 실행한다면 실행 컨텍스트(Execution Context) 내부에서 실행되고 있는 것입니다. 즉 코드들이 실행되기 위한 환경이자 하나의 박스이자 컨테이너라 볼 수 있습니다.
