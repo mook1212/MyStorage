@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
+        </script>
+    <link rel="stylesheet" href="notice.css">
+</head>
+
+<body>
+
+    <div class="notice-container">
+        <!-- <img src="./img/qna_bg.png" alt=""> -->
+
+        <header class="test-header">
+            <h1 style="color: white;">Header</h1>
+        </header>
+
+        <div class="notice-header">
+            <h1>Q&A
+                <br>
+                문의사항
+            </h1>
+        </div>
+
+        <div class="notice-box">
+            <div class="notice-main">
+
+                <div class="notice-list-box">
+
+                    <div class="notice-info">
+                        <p style="width: 10%;">번호</p>
+                        <p style="width: 60%;" style="align-items: left;">제목</p>
+                        <p style="width: 10%;">이름</p>
+                        <p style="width: 10%;">작성일</p>
+                        <p style="width: 10%; ">상태</p>
+                    </div>
+
+                    <div id="notice-list" class="notice-list" >
+
+                    </div>
+
+                    <div class="notice-write">
+                        <button id="notice-write" style="width: 90px; height: 35px; margin-right: 30px; background-color: #fdd100;
+                            font-weight: bold; font-size: 13px;">글쓰기</button>
+                    </div>
+
+                </div>
+
+
+
+                <div class="notice-paging">
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <footer class="test-footer">
+            <h1 style="color: white;">footer</h1>
+        </footer>
+
+    </div>
+
+
+    <!-- 파이어베이스 연동 -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+
+    <script src="./notice.js"></script>
+
+
+</body>
+
+</html>

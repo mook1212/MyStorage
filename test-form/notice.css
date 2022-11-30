@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.notice-container {
+  height: 100vh;
+  background-image: url("./img/qna_bg.png");
+  background-size: cover;
+}
+
+.notice-main img {
+  width: 100%;
+  height: 100%;
+}
+
+.test-header {
+  border: 3px solid red;
+  height: 10vh;
+}
+
+.notice-header {
+  height: 20vh;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notice-box {
+  height: 55vh;
+  color: white;
+}
+
+.notice-main {
+  height: 100%;
+  width: 70%;
+  margin-left: 15%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+.notice-list-box {
+  height: 70%;
+}
+
+.notice-info {
+  border: 1px solid white;
+  border-left: none;
+  border-right: none;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.notice-test {
+  border: 1px solid white;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 13px;
+}
+
+.notice-test .text {
+  text-align: left;
+  padding-left: 1%;
+}
+
+.notice-write {
+  height: 10%;
+  display: flex;
+  justify-content: end;
+  align-items: flex-end;
+}
+
+.notice-paging {
+  height: 10%;
+}
+
+button {
+  cursor: pointer;
+}
+
+.test-footer {
+  height: 15vh;
+  background-color: rgba(36, 34, 34, 0.877);
+}/*# sourceMappingURL=notice.css.map */
