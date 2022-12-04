@@ -1,0 +1,396 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+html {
+    width: 100%;
+    height: 100%;
+}
+.notice-container {
+    height: 100%;
+    background-image: url('./img/qna_bg.png');
+    background-size:cover
+    // background-repeat : no-repeat;
+}
+
+.notice-main img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* header start */
+
+/* dropdown */
+
+.dropbtn {
+    background: none;
+    color: white;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    color: var(--main-color);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: -15px;
+    background-color: #0000008f;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.drop-first {
+    color: #fff;
+    height: 100%;
+    font-size: 45px;
+}
+
+.drop-sec {
+    min-width: 160px;
+}
+
+.dropdown-content a:hover {
+    background-color: #fdd100;
+    transition: 0.3s;
+    color: black;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* language btn */
+
+
+.header {
+    // position: fixed;
+    background-color: #fff;
+    // z-index: 9999;
+    display: flex;
+    justify-content: space-between;
+    height: 25vh;
+    background: none;
+    padding: 15px 30px 15px 30px;
+    align-items: center;
+}
+
+.header img {
+    width: 130px;
+}
+
+.header .category {
+    display: flex;
+}
+
+.header .category li {
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.header .category button {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.header .category li a {
+    color: #fff;
+    font-size: 45px;
+    font-weight: 500;
+}
+
+
+
+/* header end */
+
+
+
+
+// Q&A 문의사항
+.notice-header {
+    // height: 40vh;
+    height: 500px;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    font-weight: 500;
+}
+
+
+
+
+// 게시판 박스
+.notice-box {
+    // border:  3px solid palegreen;
+    height: 1000px;
+    color: white;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.notice-main {
+    height: 100%;
+    width: 70%;
+    margin-left: 15%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.notice-list-box {
+    height: 70%;
+}
+
+@media (max-width: 800px) {
+    .notice-main {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+    
+    }
+    
+    .notice-list-box {
+        height: 70%;
+    }
+}
+.notice-list {
+    border: 1px solid white;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+.notice-info {
+    border: 1px solid white;
+    border-left: none;
+    border-right: none;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+    
+}
+
+
+// js 테스트 글쓰기 버튼 클릭시 나오는 게시글
+.notice-test {
+    border: 0.5px solid gray;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: flex-end;
+    font-size: 14px;
+    font-weight: 500;
+}
+.notice-test .text {
+    text-align: left;
+    // margin-left: 5%;
+    padding-left: 3%;
+}
+
+
+// 글쓰기 버튼
+.notice-write {
+    height: 10%;
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+}
+
+// 게시판 페이지네이션
+.notice-paging {
+    display: flex;
+    justify-content: center;
+    height: 7%;
+}
+
+.article {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    list-style: none;
+}
+
+.content__id,
+.content__author,
+.content__date {
+    flex-basis: 15%;
+}
+
+.content__title {
+    flex: 1;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.buttons {
+    position: relative;
+    padding: 1rem 0;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.button {
+    height: 50px;
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    color: white;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    border: 1px solid gray;
+    margin: 2px;
+}
+
+.button.active {
+    border: 1px solid #fdd100;
+    background-color: #fdd100;
+    color: black;
+    font-weight: 600;
+    text-decoration: underline;
+}
+.button:hover {
+    // color: #1f975d;
+    border: 1px solid #fdd100;
+
+
+    // border: none;
+}
+
+.prev {
+    // position: absolute;
+    // left: -2.5rem;
+}
+
+.next {
+    // position: absolute;
+    // right: -2.5rem;
+}
+
+ion-icon {
+    padding-top: 0.05rem;
+}
+
+
+button {
+    cursor: pointer;
+}
+
+
+// 검색 
+
+.notice-serch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+
+    select {
+        width: 150px;
+        height: 45px;
+        margin-right: 15px;
+        background-color: black;
+        color: white;
+        outline: none;
+        border: 1px solid gray;
+    }
+
+    option {
+        height: 45px;
+    }
+
+    option:hover {
+        background-color: #fdd100;
+    }
+
+    .serch-box {
+        display: flex;
+    }
+    .serch {
+        width: 300px;
+        // width: 80%;
+        height: 45px;
+        border: 1px solid gray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+    }
+
+    input:focus {outline: none;} 
+    input {
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        color: white;
+        border: none;
+        padding-right: 10px;
+    }
+
+    i {
+        display: flex;
+        align-items: center;
+        color: white;
+        background-color: black;
+        height: 100%;
+        padding-right: 5px;
+    }
+}
+
+
+.answer {
+    background-color: red;
+    width: 5%;
+    margin-right: 10px;
+    text-align: center;
+    height: 50%;
+    border-radius: 5%;
+    background-color: gray;
+}
+
+// footer
+.test-footer {
+    // border: 3px solid gold;
+    height: 15vh;
+    // height: 22vh;
+    background-color: rgba(36, 34, 34, 0.877);
+}
+

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
+        </script>
+
+    <!-- 페이지네이션 라이브러리 -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/02b04573cb.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="notice.css">
+</head>
+
+<body>
+
+    <div class="notice-container">
+        <!-- <img src="./img/qna_bg.png" alt=""> -->
+
+        <!-- header start -->
+
+        <!-- <header class="header">
+
+            <ul><img src="../조인피플img/logo.png"></ul>
+            <ul class="category">
+                <li><a href="#">COMPANY</a></li>
+
+                <div class="dropdown" style="float:right; text-align: center;">
+                    <button class="dropbtn drop-first">BUSINESS</button>
+                    <div class="dropdown-content drop-sec">
+                        <a href="#">메타버스추모관</a>
+                        <a href="#">Bnplo 쇼핑</a>
+                    </div>
+                </div>
+
+                <li><a href="#">VISIT</a></li>
+                <li><a href="#">NEWS</a></li>
+                <li><a href="#">Q&A</a></li>
+                <div class="dropdown" style="float:right; text-align: center;">
+                    <button class="dropbtn">KR</button>
+                    <div class="dropdown-content">
+                        <a href="#">한국어</a>
+                        <a href="./main-eng/index.html">English</a>
+                    </div>
+                </div>
+
+            </ul>
+
+        </header> -->
+
+
+        <div class="notice-header">
+            <p>Q&A
+                <br>
+                문의사항
+            </p>
+        </div>
+
+        <div class="notice-box">
+            <div class="notice-main">
+
+                <div class="notice-list-box">
+
+                    <div class="notice-info">
+                        <p style="width: 5%;">번호</p>
+                        <p style="width: 65%;" style="align-items: left;">제목</p>
+                        <p style="width: 10%;">이름</p>
+                        <p style="width: 15%;">작성일</p>
+                        <p style="width: 5%; margin-right: 10px; ">상태</p>
+                    </div>
+
+
+
+                    <!-- <div id="notice-list-a" class="notice-list-a">
+
+                    </div> -->
+
+                    <div id="notice-list" class="notice-list">
+
+                    </div>
+
+                    <div class="notice-write">
+                        <button id="notice-write" style="width: 110px; height: 38px; margin-right: 30px; background-color: #fdd100;
+                            font-weight: bold; font-size: 13px;">글쓰기</button>
+                    </div>
+
+                </div>
+
+                <div id="notice-paging" class="notice-paging">
+
+                </div>
+
+                <div class="notice-serch">
+                    <div class="serch-box">
+
+                        <div class="notice-select">
+                            <select name="" id="select">
+                                <option value="header">제목</option>
+                                <option value="name">이름</option>
+                            </select>
+                        </div>
+
+                        <div class="serch">
+                            <input id="serch-input" value="" type="text">
+                            <i style="cursor: pointer;" id="serch" class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <footer class="test-footer">
+            <h1 style="color: white;">footer</h1>
+        </footer>
+
+    </div>
+
+
+    <!-- 파이어베이스 연동 -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+
+    <script src="./notice.js"></script>
+
+
+</body>
+
+</html>

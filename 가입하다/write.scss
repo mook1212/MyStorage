@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.write-container {
+    height: 100vh;
+    background-image: url('./img/qna_bg.png');
+    background-size:cover
+    // background-repeat : no-repeat;
+}
+
+.write-main img {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+.test-header {
+    border: 3px solid red;
+    height: 10vh;
+}
+
+// Q&A 문의사항
+.write-header {
+    height: 20vh;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+// 게시판 박스
+.write-box {
+    // border:  3px solid palegreen;
+    height: 55vh;
+    color: white;
+
+}
+
+.write-main {
+    height: 100%;
+    width: 70%;
+    margin-left: 15%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.write-text {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+
+// 게시글 작성 부분
+.write-content {
+    border: 1px solid white;
+    border-left: none;
+    border-right: none;
+    width: 100%;
+    height: 75%;
+}
+.write-flex-item {
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    input {
+        height: 50%;
+        background-color: gray;
+        border: 1px solid white;
+        color: white;
+    }
+}
+.write-content-header input{
+    width: 85%;
+}
+.write-content-text {
+    height: 64%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.write-content-text textarea {
+    width: 85%;
+    height: 100%;
+    margin-top: 3%;
+    background-color: gray;
+    border: 1px solid white;
+    color: white;
+}
+
+
+// 작성완료 / 목록 버튼
+.write-btnbox {
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button {
+    cursor: pointer;
+}
+
+
+.test-footer {
+    // border: 3px solid gold;
+    height: 15vh;
+    background-color: rgba(36, 34, 34, 0.877);
+}
