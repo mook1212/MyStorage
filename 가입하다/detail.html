@@ -22,7 +22,7 @@
 
     <script src="https://kit.fontawesome.com/02b04573cb.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="notice.css">
+    <link rel="stylesheet" href="detail.css">
 </head>
 
 <body>
@@ -32,7 +32,7 @@
 
         <!-- header start -->
 
-        <!-- <header class="header">
+        <header class="header">
 
             <ul><img src="../조인피플img/logo.png"></ul>
             <ul class="category">
@@ -59,7 +59,7 @@
 
             </ul>
 
-        </header> -->
+        </header>
 
 
         <div class="notice-header">
@@ -71,62 +71,7 @@
 
         <div class="notice-box">
             <div class="notice-main">
-
-                <div class="notice-list-box">
-
-                    <div class="notice-info">
-                        <p style="width: 5%;">번호</p>
-                        <p style="width: 65%;" style="align-items: left;">제목</p>
-                        <p style="width: 10%;">이름</p>
-                        <p style="width: 15%;">작성일</p>
-                        <p style="width: 5%; margin-right: 10px; ">상태</p>
-                    </div>
-
-
-
-                    <!-- <div id="notice-list-a" class="notice-list-a">
-
-                    </div> -->
-
-                    <div id="notice-list" class="notice-list">
-
-                    </div>
-
-                    <div class="notice-write">
-                        <button id="notice-write" style="width: 110px; height: 38px; margin-right: 30px; background-color: #fdd100;
-                            font-weight: bold; font-size: 13px;">글쓰기</button>
-                    </div>
-
-                </div>
-
-                <div id="notice-paging" class="notice-paging">
-
-                </div>
-
-                <div class="notice-search">
-                    <div class="search-box">
-
-                        <div class="select-container">
-                            <div class="sel-main">
-                                <p id="sel-check" style="margin-left: 5px;">제목</p>
-                            </div>
-
-                            <div class="sel-box">
-                                <p id="sel-header">제목</p>
-                                <p id="sel-name">이름</p>
-                            </div>
-
-                        </div>
-
-
-                        <div class="search">
-                            <input id="search-input" value="" type="text">
-                            <i style="cursor: pointer;" id="search" class="fa-solid fa-magnifying-glass"></i>
-                        </div>
-
-                    </div>
-                </div>
-
+                <h1>선택한 게시글</h1>
             </div>
         </div>
 
@@ -143,39 +88,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
 
-    <script src="./notice.js"></script>
+    <script src="./detail.js"></script>
 
-    <!-- <style>
-        .test {
-            width: 300px;
-            height: 100px;
-        }
-
-        .box {
-            border: 1px solid red;
-        }
-
-        .sel {
-            border: 1px solid blue;
-            display: none;
-        }
-
-        .sel p:hover {
-            background-color: #fdd100;
-        }
-    </style>
-
-    <div class="test">
-        <div class="box">
-            <p id="sel-check">ㅎㅇ</p>
-        </div>
-
-        <div class="sel">
-            <p id="sel-header">제목</p>
-            <p id="sel-name">이름</p>
-        </div>
-
-    </div> -->
 
 </body>
 

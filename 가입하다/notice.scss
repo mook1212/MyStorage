@@ -7,15 +7,16 @@
 a {
     text-decoration: none;
 }
+
 html {
     width: 100%;
     height: 100%;
 }
+
 .notice-container {
     height: 100%;
     background-image: url('./img/qna_bg.png');
-    background-size:cover
-    // background-repeat : no-repeat;
+    background-size: cover // background-repeat : no-repeat;
 }
 
 .notice-main img {
@@ -171,19 +172,23 @@ html {
         background-color: black;
         display: flex;
         flex-direction: column;
-    
+
     }
-    
+
     .notice-list-box {
         height: 70%;
     }
 }
+
 .notice-list {
     border: 1px solid white;
     border-left: none;
     border-right: none;
     border-top: none;
 }
+
+.notice-list .text {}
+
 .notice-info {
     border: 1px solid white;
     border-left: none;
@@ -194,11 +199,11 @@ html {
     text-align: center;
     font-weight: 600;
     font-size: 20px;
-    
+
 }
 
 
-// js 테스트 글쓰기 버튼 클릭시 나오는 게시글
+// 게시판 조회
 .notice-test {
     border: 0.5px solid gray;
     border-left: none;
@@ -212,6 +217,7 @@ html {
     font-size: 14px;
     font-weight: 500;
 }
+
 .notice-test .text {
     text-align: left;
     // margin-left: 5%;
@@ -287,6 +293,7 @@ html {
     font-weight: 600;
     text-decoration: underline;
 }
+
 .button:hover {
     // color: #1f975d;
     border: 1px solid #fdd100;
@@ -317,7 +324,10 @@ button {
 
 // 검색 
 
-.notice-serch {
+.notice-search {
+    * {
+        box-sizing: border-box;
+    }
     display: flex;
     justify-content: center;
     align-items: center;
@@ -326,6 +336,7 @@ button {
     select {
         width: 150px;
         height: 45px;
+        // height: 100%;
         margin-right: 15px;
         background-color: black;
         color: white;
@@ -333,18 +344,54 @@ button {
         border: 1px solid gray;
     }
 
-    option {
+    .select-container {
+        width: 150px;
         height: 45px;
+        margin-right: 15px;
+        background-color: black;
+        color: white;
     }
 
-    option:hover {
+    .sel-main {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        border: 1px solid gray;
+        cursor: pointer;
+
+    }
+
+
+    .sel-box {
+        width: 100%;
+        height: 100px;
+        border: 1px solid gray;
+        border-top: none;
+        display: none;
+    }
+
+    .sel-box p:hover {
         background-color: #fdd100;
+        color: black;
+        cursor: pointer;
+    }
+    .sel-box p{
+    height: 50%;
+    vertical-align: middle;
+    padding-left: 5px;
+    padding-top: 12px;
     }
 
-    .serch-box {
+
+
+
+    // 검색박스
+    .search-box {
         display: flex;
     }
-    .serch {
+
+    .search {
         width: 300px;
         // width: 80%;
         height: 45px;
@@ -355,7 +402,10 @@ button {
         background-color: white;
     }
 
-    input:focus {outline: none;} 
+    input:focus {
+        outline: none;
+    }
+
     input {
         height: 100%;
         width: 100%;
@@ -375,6 +425,38 @@ button {
     }
 }
 
+// 셀렉트 박스
+// .select-container {
+//     width: 150px;
+//     height: 45px;
+//     margin-right: 15px;
+//     background-color: black;
+//     color: white;
+//     border: 1px solid gray;
+// }
+
+// .sel-box {
+//     width: 100%;
+//     border: 1px solid gray;
+
+//     // display: none;
+// }
+
+// .sel-box p:hover {
+//     background-color: #fdd100;
+// }
+
+
+
+// .sel-main {
+//     width: 100%;
+//     height: 100%;
+//     display: flex;
+//     align-items: center;
+// }
+
+
+
 
 .answer {
     background-color: red;
@@ -393,4 +475,3 @@ button {
     // height: 22vh;
     background-color: rgba(36, 34, 34, 0.877);
 }
-
