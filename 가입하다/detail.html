@@ -27,7 +27,7 @@
 
 <body>
 
-    <div class="notice-container">
+    <div class="detail-container">
         <!-- <img src="./img/qna_bg.png" alt=""> -->
 
         <!-- header start -->
@@ -62,22 +62,51 @@
         </header>
 
 
-        <div class="notice-header">
+        <div class="detail-header">
             <p>Q&A
                 <br>
                 문의사항
             </p>
         </div>
 
-        <div class="notice-box">
-            <div class="notice-main">
-                <h1>선택한 게시글</h1>
+        <div class="detail-box">
+            <div class="detail-main">
+                <h1 style='text-align: center; margin-top: 30px;'>문의사항</h1>
+                <div class="post-box">
+
+                </div>
+
+                <div class="detail-btn">
+                    <div class="detail-btn-box">
+                        <button style="background-color: #fdd100;">수정</button>
+                        <button id="delete">삭제</button>
+                        <button id="cancel">목록</button>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <footer class="test-footer">
-            <h1 style="color: white;">footer</h1>
+
+        <footer>
+
+            <div class="footer-container">
+
+                <h2><img src="../조인피플img/logo.png">주식회사 조인피플</h2>
+                <p>문의하기 <span><a href="#"><img src="../조인피플img/mail_icon.png" style="width: 30px;"></a></span>
+                </p>
+                <p>대표이사 <span>이두희</span></p>
+                <p>주소 <span>서울특별시 관악구 승방길 7, 203호</span></p>
+                <p>전화 <span>02-3473-3636</span></p>
+            </div>
+
+            <div class="copyright">
+                <p>COPYRIGHT 2022, JOIN PEOPLE ALL RIGHTS RESERVED.</p>
+            </div>
         </footer>
+
+    </div>
+
+    <div class="pw-check">
 
     </div>
 
@@ -89,6 +118,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
 
     <script src="./detail.js"></script>
+
+
 
 
 </body>

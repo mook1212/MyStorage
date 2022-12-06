@@ -269,7 +269,7 @@ $('#search').click(() => {
 
     if ($('#sel-check').text() == '이름') {
         let search_data = []
-        db.collection('게시글목록').where('이름', '<=', search_text + '\uf8ff').get().then((res) => {
+        db.collection('게시글목록').get().then((res) => {
             res.forEach((a) => {
                 console.log(a.data());
                 search_data.push(a.data())
@@ -297,6 +297,11 @@ $('#search').click(() => {
         <p class='answer'>답변대기</p>
         </div>
         `)
+        
+        // let ss = []
+        // let xx = search_data[id].제목.match(search_text)
+        // ss.push(xx)
+        // console.log(ss);
                 return content;
             };
 
@@ -412,16 +417,46 @@ $('#sel-name').click(() => {
 })
 
 
-let qq = []
-db.collection('게시글목록').get().then((res) => {
-    res.forEach((a) => {
-        qq.push(a.data())
-    })
-    console.log(qq);
+// let qq = []
+// db.collection('게시글목록').get().then((res) => {
+//     res.forEach((a) => {
+//         qq.push(a.data())
+//     })
+//     console.log(qq);
 
-    var searchText = '메타버스';
-    var result = qq.filter(function (a,i) {
-        return a[i]
-    });
-    console.log(result);
-})
+//     const test = qq.filter((a) => {
+//         if (a.제목 == '메타버스 화이팅') {
+//             return true;
+//         }
+//     });
+//     console.log(test);
+
+// })
+
+
+const arr = [
+    { name: 'dog cat코끼리', age: 4 },
+    { name: 'cat', age: 6 },
+    { name: 'dog', age: 2 }
+];
+
+let res = arr[0].name.match('og')
+console.log(res.input);
+
+// let zz = 4
+const test = arr.filter((a) => {
+    if (a.name == 'dog') {
+        return true;
+    }
+});
+console.log(test);
+
+// var stringVal = "Hello World",
+//     substring = "Hell";
+// console.log(_.includes(stringVal , substring));
+
+var stringVal = "super mario",
+    exp = /mario/;
+stringVal.match(exp);
+
+console.log(stringVal.match(exp));

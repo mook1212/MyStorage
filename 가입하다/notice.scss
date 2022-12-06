@@ -468,10 +468,61 @@ button {
     background-color: gray;
 }
 
-// footer
-.test-footer {
-    // border: 3px solid gold;
-    height: 15vh;
-    // height: 22vh;
-    background-color: rgba(36, 34, 34, 0.877);
+
+
+/* footer start */
+
+footer {
+    background-color: #2e2e2e;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(../조인피플img/footer_logo_big.png);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
+
+.footer-container {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 35px;
+}
+
+.footer-container h2 {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-weight: 400;
+}
+
+.footer-container h2 img {
+    width: 65px;
+}
+
+.footer-container p {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+    display: flex;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.footer-container span {
+    align-items: center;
+    display: flex;
+    margin-left: 20px;
+}
+
+.copyright {
+    text-align: center;
+}
+.copyright p {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+/* footer end */

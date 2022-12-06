@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -11,15 +12,16 @@ a {
 html {
   width: 100%;
   height: 100%;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
-.notice-container {
+.detail-container {
   height: 100%;
   background-image: url("./img/qna_bg.png");
   background-size: cover;
 }
 
-.notice-main img {
+.detail-main img {
   width: 100%;
   height: 100%;
 }
@@ -113,7 +115,7 @@ html {
 }
 
 /* header end */
-.notice-header {
+.detail-header {
   height: 500px;
   color: white;
   text-align: center;
@@ -124,13 +126,13 @@ html {
   font-weight: 500;
 }
 
-.notice-box {
-  height: 1000px;
+.detail-box {
+  height: 100%;
   color: white;
   font-family: "Noto Sans KR", sans-serif;
 }
 
-.notice-main {
+.detail-main {
   height: 100%;
   width: 70%;
   margin-left: 15%;
@@ -139,12 +141,8 @@ html {
   flex-direction: column;
 }
 
-.notice-list-box {
-  height: 70%;
-}
-
 @media (max-width: 800px) {
-  .notice-main {
+  .detail-main {
     height: 100%;
     width: 100%;
     margin: 0;
@@ -152,30 +150,128 @@ html {
     display: flex;
     flex-direction: column;
   }
-  .notice-list-box {
-    height: 70%;
-  }
 }
-.notice-list {
-  border: 1px solid white;
-  border-left: none;
-  border-right: none;
-  border-top: none;
+.post-box {
+  margin-top: 50px;
 }
 
-.notice-info {
-  border: 1px solid white;
-  border-left: none;
-  border-right: none;
-  height: 10%;
+.info {
   display: flex;
   align-items: center;
-  text-align: center;
-  font-weight: 600;
-  font-size: 20px;
+  border: 1px solid grey;
+  border-top: 2px solid white;
+  border-left: none;
+  border-right: none;
+  height: 60px;
 }
 
-.test-footer {
-  height: 15vh;
-  background-color: rgba(36, 34, 34, 0.877);
-}/*# sourceMappingURL=detail.css.map */
+.info:first-child {
+  padding-left: 60px;
+}
+
+.name {
+  display: flex;
+  margin-left: auto;
+  margin-right: 30px;
+}
+
+.text {
+  border: 1px solid grey;
+  border-bottom: 2px solid white;
+  border-left: none;
+  border-right: none;
+  padding: 60px;
+}
+
+.detail-btn {
+  height: 350px;
+  display: flex;
+  margin-left: auto;
+}
+
+.detail-btn-box {
+  margin-top: 20px;
+  margin-right: 40px;
+}
+
+.detail-btn-box button {
+  width: 70px;
+  height: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.detail-btn-box button:nth-child(2) {
+  background-color: rgb(173, 173, 173);
+  color: white;
+}
+
+.detail-btn-box button:nth-child(3) {
+  background-color: rgb(173, 173, 173);
+  color: white;
+}
+
+.pw-check {
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+  position: absolute;
+}
+
+/* footer start */
+footer {
+  background-color: #2e2e2e;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../조인피플img/footer_logo_big.png);
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.footer-container {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 35px;
+}
+
+.footer-container h2 {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-weight: 400;
+}
+
+.footer-container h2 img {
+  width: 65px;
+}
+
+.footer-container p {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 300;
+  display: flex;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.footer-container span {
+  align-items: center;
+  display: flex;
+  margin-left: 20px;
+}
+
+.copyright {
+  text-align: center;
+}
+
+.copyright p {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 300;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+/* footer end *//*# sourceMappingURL=detail.css.map */
