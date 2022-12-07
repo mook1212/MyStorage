@@ -13,14 +13,14 @@ const db = firebase.firestore()
 
 
 // 게시판 글 목록
-const contents = document.querySelector(".contents");
-const buttons = document.querySelector(".buttons");
+// const contents = document.querySelector(".contents");
+// const buttons = document.querySelector(".buttons");
 
-const numOfContent = 178;
-const maxContent = 8;
-const maxButton = 5;
-const maxPage = 18;
-let page = 1;
+// const numOfContent = 178;
+// const maxContent = 8;
+// const maxButton = 5;
+// const maxPage = 18;
+// let page = 1;
 
 let dbdata = [];
 // 게시글 시간순으로 정렬
@@ -44,6 +44,7 @@ db.collection('게시글목록').orderBy('date', 'desc').get().then((res) => {
 
     // 게시판 글 조회
     const makeContent = (id) => {
+        // console.log(id);
         const content = document.createElement("li");
         content.classList.add("content");
 
@@ -141,41 +142,32 @@ db.collection('게시글목록').orderBy('date', 'desc').get().then((res) => {
     next.addEventListener("click", goNextPage);
 
 
-    // let dd = []
-    // const arr = [
-    //     { name: 'dog cat코끼리', age: 4 },
-    //     { name: 'cat', age: 6 },
-    //     { name: 'dog', age: 2 },
-    //     { name: 'dog', age: 3 },
-    //     { name: 'dog', age: 6 },
-    // ];
-
-
+    // let arr = []
     // dbdata.map((a, i) => {
 
-    //     let zz = a.제목.match('안녕')
+    //     let title = a.제목.match('안녕')
 
-    //     if (zz != null) {
-    //         dd.push(zz.input)
+    //     if (title != null) {
+    //         arr.push(title.input)
     //     }
 
     // })
 
-    // console.log(dd);
+    // let set = new Set(arr);
+    // let newSet = [...set]
+    // console.log(newSet);
 
-    // let ss = dbdata.filter((c) => {
-    //     // console.log(dbdata);
-
-
-
-    //     dd.map((a, i) => {
-    //         if (c.제목 == dd[i]) {
-    //             return true;
-    //         }
+    // let search = []
+    // newSet.map((a, i) => {
+    //     db.collection('게시글목록').where('제목', '==', newSet[i]).get().then((res) => {
+    //         res.forEach((a) => {
+    //             // console.log(a.data());
+    //             search.push(a.data())
+    //         })
     //     })
     // })
 
-    // console.log(ss);
+    // console.log(search);
 
 })
 
@@ -184,7 +176,7 @@ db.collection('게시글목록').orderBy('date', 'desc').get().then((res) => {
 
 // 글쓰기 기능
 $('#notice-write').click(() => {
-    location.href = 'http://127.0.0.1:5500/%ED%85%8C%EC%8A%A4%ED%8A%B8%20%ED%8F%BC/%EC%A1%B0%EC%9D%B8%ED%94%BC%ED%94%8C%20%EB%A9%94%EC%9D%B8/QnA/write.html'
+    location.href = 'http://127.0.0.1:5500/%EC%A1%B0%EC%9D%B8%ED%94%BC%ED%94%8C%20%EB%A9%94%EC%9D%B8/QnA/write.html'
 })
 
 
@@ -194,6 +186,171 @@ $('#notice-write').click(() => {
 $('#search').click(() => {
     let search_text = $('#search-input').val()
     console.log(search_text);
+
+    if ($('#sel-check').text() == '제목') {
+
+        let pro = new Promise((res, reject) => {
+            let arr = []
+            dbdata.map((a, i) => {
+
+                let title = a.제목.match(search_text)
+
+                if (title != null) {
+                    arr.push(title.input)
+                }
+
+            })
+
+            let set = new Set(arr);
+            let newSet = [...set]
+            console.log(newSet);
+
+            let search = []
+            newSet.map((a, i) => {
+                db.collection('게시글목록').where('제목', '==', newSet[i]).get().then((res) => {
+                    // console.log(newSet[i]);
+                    res.forEach((a) => {
+                        search.push(a.data())
+                        console.log(a.data());
+                    })
+                    console.log(search);
+                })
+            })
+
+            console.log(typeof(search));
+            res(search)
+        })
+        pro.then((search) => {
+            console.log(typeof(search));
+
+            search.forEach((a)=> {
+                console.log(a);
+            })
+            console.log(search);
+            console.log(search[0]);
+            console.log(search.length);
+            // console.log(res);
+            const contents = document.querySelector("#notice-list");
+            const buttons = document.querySelector(".notice-paging");
+
+            const numOfContent = search.length;
+            console.log(numOfContent);
+            console.log(search.length);
+            const maxContent = 10;
+            const maxButton = 5;
+            const maxPage = search.length / 10 + 1;
+            // const maxPage = 1; 
+            let page = 1;
+
+
+
+            // 게시판 글 조회
+            const makeContent = (id) => {
+                console.log(id);
+                console.log(search[id]);
+                const content = document.createElement("li");
+                content.classList.add("content");
+
+                $('#notice-list').append(`<div class="notice-test" data>
+                    <p class="notice-num" style="width: 5%; color : white">${search.length + 1 - id}</p>
+                    <p data-id='${search[id - 1].id}' id='text${id}' class='text' style="width: 65%; cursor: pointer">${dbdata[id - 1].제목}</p>
+                    <p style="width: 10%;">${search[id - 1].이름}</p>
+                    <p style="width: 15%;">${search[id - 1].작성일}</p>
+                    <p class='answer'>답변대기</p>
+                    </div>
+                `)
+
+                // 제목 클릭시 상세페이지 넘어가기
+                $(`#text${id}`).click((e) => {
+                    console.log(e.target.dataset.id);
+
+                    localStorage.setItem('제목', e.target.dataset.id)
+                    location.href = 'http://127.0.0.1:5500/%ED%85%8C%EC%8A%A4%ED%8A%B8%20%ED%8F%BC/%EC%A1%B0%EC%9D%B8%ED%94%BC%ED%94%8C%20%EB%A9%94%EC%9D%B8/QnA/detail.html'
+                })
+
+                return content;
+            };
+
+            const makeButton = (id) => {
+                const button = document.createElement("button");
+                button.classList.add("button");
+                button.dataset.num = id;
+                button.innerText = id;
+                button.addEventListener("click", (e) => {
+                    Array.prototype.forEach.call(buttons.children, (button) => {
+                        if (button.dataset.num) button.classList.remove("active");
+                    });
+                    e.target.classList.add("active");
+                    renderContent(parseInt(e.target.dataset.num));
+                });
+                return button;
+            };
+
+            const prev = document.createElement("button");
+            const next = document.createElement("button");
+
+            const renderContent = (page) => {
+                // 목록 리스트 초기화
+                while (contents.hasChildNodes()) {
+                    contents.removeChild(contents.lastChild);
+                }
+                // 글의 최대 개수를 넘지 않는 선에서, 화면에 최대 10개의 글 생성
+                for (let id = (page - 1) * maxContent + 1; id <= page * maxContent && id <= numOfContent; id++) {
+                    contents.appendChild(makeContent(id));
+                }
+            };
+
+            const renderButton = (page) => {
+                // 버튼 리스트 초기화
+                while (buttons.hasChildNodes()) {
+                    buttons.removeChild(buttons.lastChild);
+                }
+                // 화면에 최대 5개의 페이지 버튼 생성
+                for (let id = page; id < page + maxButton && id <= maxPage; id++) {
+                    buttons.appendChild(makeButton(id));
+                }
+                // 첫 버튼 활성화(class="active")
+                buttons.children[0].classList.add("active");
+
+                buttons.prepend(prev);
+                buttons.append(next);
+
+                // 이전, 다음 페이지 버튼이 필요한지 체크
+                if (page - maxButton < 1) buttons.removeChild(prev);
+                if (page + maxButton > maxPage) buttons.removeChild(next);
+            };
+
+            const render = (page) => {
+                renderContent(page);
+                renderButton(page);
+            };
+            render(page);
+
+            const goPrevPage = () => {
+                page -= maxButton;
+                render(page);
+            };
+
+            const goNextPage = () => {
+                page += maxButton;
+                render(page);
+            };
+
+            prev.classList.add("button", "prev");
+            prev.innerHTML = '<ion-icon name="chevron-back-outline"></ion-icon>';
+            prev.addEventListener("click", goPrevPage);
+
+            next.classList.add("button", "next");
+            next.innerHTML = '<ion-icon name="chevron-forward-outline"></ion-icon>';
+            next.addEventListener("click", goNextPage);
+            console.log(search);
+        })
+        .catch(()=>{
+            alert('실패')
+        })
+
+
+    }
 
     // const search = (key) => {
     //     let search_data = []
@@ -304,9 +461,14 @@ $('#search').click(() => {
     // }
 
 
+
+
+    // 검색 이름
+
     if ($('#sel-check').text() == '이름') {
+        console.log(123);
         let search_data = []
-        db.collection('게시글목록').get().then((res) => {
+        db.collection('게시글목록').where('이름', '==', search_text).get().then((res) => {
             res.forEach((a) => {
                 console.log(a.data());
                 search_data.push(a.data())
@@ -438,12 +600,15 @@ $('.sel-main').click(() => {
     }
 })
 
+
 $('#sel-header').click(() => {
     $('#sel-check').html($('#sel-header').text())
     console.log($('#sel-check').text());
     sel_count = 1;
     $('.sel-box').fadeOut('fast')
 })
+
+
 $('#sel-name').click(() => {
     $('#sel-check').html($('#sel-name').text())
     console.log($('#sel-check').text());
@@ -453,90 +618,3 @@ $('#sel-name').click(() => {
 
 })
 
-
-// let qq = []
-// db.collection('게시글목록').get().then((res) => {
-//     res.forEach((a) => {
-//         qq.push(a.data())
-//     })
-//     console.log(qq);
-
-//     const test = qq.filter((a) => {
-//         if (a.제목 == '메타버스 화이팅') {
-//             return true;
-//         }
-//     });
-//     console.log(test);
-
-// })
-
-
-// console.log(ss);
-
-
-// console.log(dd);
-
-// let ss = arr.filter((c) => {
-//     console.log(c.name);
-//     console.log(dd[i]);
-//     if (c.name == dd[i]) {
-//         return true;
-//     }
-// });
-
-// console.log(ll);
-
-
-
-// arr.map((a,i)=> {
-//     let res = arr[i].name.match('og')
-//     console.log(res);
-//     console.log(res.input);
-// })
-// let res = arr[0].name.match('og')
-// console.log(res);
-// console.log(res.input);
-
-// let zz = 4
-// console.log(typeof (dbdata));
-
-
-// console.log(typeof(arr));
-// let ff = []
-// dbdata.map((a, i) => {
-//     console.log(a);
-//     let res = dbdata[i].제목.match('안녕')
-//     if (res != null) {
-//         ff.push(res.input)
-//         console.log(ff);
-
-//         ff.forEach((a)=> {
-
-//             console.log(a);
-
-//             db.collection('게시글목록').where('제목','==',a).get().then((res)=> {
-//                 res.forEach((a)=>{
-//                     console.log(a.data());
-//                 })
-//             })
-//         })
-//     }
-// })
-
-
-// const test = arr.filter((a) => {
-//     if (a.name == 'dog') {
-//         return true;
-//     }
-// });
-// console.log(test);
-
-// var stringVal = "Hello World",
-//     substring = "Hell";
-// console.log(_.includes(stringVal , substring));
-
-// var stringVal = "super mario",
-//     exp = /mario/;
-// stringVal.match(exp);
-
-// console.log(stringVal.match(exp));
