@@ -44,7 +44,9 @@ document.getElementById('write-clear').addEventListener('click', () => {
                 // 게시글 DB 저장
                 db.collection('게시글목록').doc(String(totalpost)).set({ id: totalpost, 답변: false, 제목: title, 이름: name, pw: pw, 내용: text.split('\n'), 작성일: day, date: today })
                     .then(() => {
-                        alert('게시글 작성이 완료되었습니다.')
+                        location.href = 'http://127.0.0.1:5500/%ED%85%8C%EC%8A%A4%ED%8A%B8%20%ED%8F%BC/%EC%A1%B0%EC%9D%B8%ED%94%BC%ED%94%8C%20%EB%A9%94%EC%9D%B8/QnA/notice.html'
+
+                        // alert('게시글 작성이 완료되었습니다.')
                     })
 
                 // 게시글 총개수 설정
@@ -58,15 +60,16 @@ document.getElementById('write-clear').addEventListener('click', () => {
     }
 })
 
-
-// 게시글목록 컬렉션 안에 문서 개수 가져오기
-db.collection('게시글목록').get('UZsKY5nq6ODxkFr3STFr').then(snap => {
-    size = snap.size // will return the collection size
-    console.log(size);
-});
-
-
+// 글쓰기 취소
 document.getElementById('write-cancel').addEventListener('click', () => {
-    // location.href = '/public/index.html'
+    location.href = 'http://127.0.0.1:5500/%ED%85%8C%EC%8A%A4%ED%8A%B8%20%ED%8F%BC/%EC%A1%B0%EC%9D%B8%ED%94%BC%ED%94%8C%20%EB%A9%94%EC%9D%B8/QnA/notice.html'
     console.log('뒤로가기');
 })
+
+
+// 게시글목록 컬렉션 안에 문서 개수 가져오기
+// db.collection('게시글목록').get('UZsKY5nq6ODxkFr3STFr').then(snap => {
+//     size = snap.size // will return the collection size
+//     console.log(size);
+// });
+

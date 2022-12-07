@@ -140,6 +140,43 @@ db.collection('게시글목록').orderBy('date', 'desc').get().then((res) => {
     next.innerHTML = '<ion-icon name="chevron-forward-outline"></ion-icon>';
     next.addEventListener("click", goNextPage);
 
+
+    // let dd = []
+    // const arr = [
+    //     { name: 'dog cat코끼리', age: 4 },
+    //     { name: 'cat', age: 6 },
+    //     { name: 'dog', age: 2 },
+    //     { name: 'dog', age: 3 },
+    //     { name: 'dog', age: 6 },
+    // ];
+
+
+    // dbdata.map((a, i) => {
+
+    //     let zz = a.제목.match('안녕')
+
+    //     if (zz != null) {
+    //         dd.push(zz.input)
+    //     }
+
+    // })
+
+    // console.log(dd);
+
+    // let ss = dbdata.filter((c) => {
+    //     // console.log(dbdata);
+
+
+
+    //     dd.map((a, i) => {
+    //         if (c.제목 == dd[i]) {
+    //             return true;
+    //         }
+    //     })
+    // })
+
+    // console.log(ss);
+
 })
 
 
@@ -297,11 +334,11 @@ $('#search').click(() => {
         <p class='answer'>답변대기</p>
         </div>
         `)
-        
-        // let ss = []
-        // let xx = search_data[id].제목.match(search_text)
-        // ss.push(xx)
-        // console.log(ss);
+
+                // let ss = []
+                // let xx = search_data[id].제목.match(search_text)
+                // ss.push(xx)
+                // console.log(ss);
                 return content;
             };
 
@@ -434,29 +471,72 @@ $('#sel-name').click(() => {
 // })
 
 
-const arr = [
-    { name: 'dog cat코끼리', age: 4 },
-    { name: 'cat', age: 6 },
-    { name: 'dog', age: 2 }
-];
+// console.log(ss);
 
-let res = arr[0].name.match('og')
-console.log(res.input);
+
+// console.log(dd);
+
+// let ss = arr.filter((c) => {
+//     console.log(c.name);
+//     console.log(dd[i]);
+//     if (c.name == dd[i]) {
+//         return true;
+//     }
+// });
+
+// console.log(ll);
+
+
+
+// arr.map((a,i)=> {
+//     let res = arr[i].name.match('og')
+//     console.log(res);
+//     console.log(res.input);
+// })
+// let res = arr[0].name.match('og')
+// console.log(res);
+// console.log(res.input);
 
 // let zz = 4
-const test = arr.filter((a) => {
-    if (a.name == 'dog') {
-        return true;
-    }
-});
-console.log(test);
+// console.log(typeof (dbdata));
+
+
+// console.log(typeof(arr));
+// let ff = []
+// dbdata.map((a, i) => {
+//     console.log(a);
+//     let res = dbdata[i].제목.match('안녕')
+//     if (res != null) {
+//         ff.push(res.input)
+//         console.log(ff);
+
+//         ff.forEach((a)=> {
+
+//             console.log(a);
+
+//             db.collection('게시글목록').where('제목','==',a).get().then((res)=> {
+//                 res.forEach((a)=>{
+//                     console.log(a.data());
+//                 })
+//             })
+//         })
+//     }
+// })
+
+
+// const test = arr.filter((a) => {
+//     if (a.name == 'dog') {
+//         return true;
+//     }
+// });
+// console.log(test);
 
 // var stringVal = "Hello World",
 //     substring = "Hell";
 // console.log(_.includes(stringVal , substring));
 
-var stringVal = "super mario",
-    exp = /mario/;
-stringVal.match(exp);
+// var stringVal = "super mario",
+//     exp = /mario/;
+// stringVal.match(exp);
 
-console.log(stringVal.match(exp));
+// console.log(stringVal.match(exp));
