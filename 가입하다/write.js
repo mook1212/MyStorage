@@ -42,7 +42,7 @@ document.getElementById('write-clear').addEventListener('click', () => {
                 let day = today.getFullYear() + '년' + (today.getMonth() + 1) + '월' + today.getDate() + '일'
 
                 // 게시글 DB 저장
-                db.collection('게시글목록').doc(String(totalpost)).set({ id: totalpost, 답변: false, 제목: title, 이름: name, pw: pw, 내용: text.split('\n'), 작성일: day, date: today })
+                db.collection('게시글목록').doc(String(totalpost)).set({ id: totalpost, 답변: false, 제목: title, 이름: name, pw: pw, 내용: text.split('\r'), 작성일: day, date: today })
                     .then(() => {
                         location.href = 'http://127.0.0.1:5500/%ED%85%8C%EC%8A%A4%ED%8A%B8%20%ED%8F%BC/%EC%A1%B0%EC%9D%B8%ED%94%BC%ED%94%8C%20%EB%A9%94%EC%9D%B8/QnA/notice.html'
 

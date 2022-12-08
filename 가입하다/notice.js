@@ -44,7 +44,7 @@ db.collection('게시글목록').orderBy('date', 'desc').get().then((res) => {
             <p data-id='${dbdata[id - 1].id}' id='text${id}' class='text' style="width: 65%; cursor: pointer">${dbdata[id - 1].제목}</p>
             <p style="width: 10%;">${dbdata[id - 1].이름}</p>
             <p style="width: 15%;">${dbdata[id - 1].작성일}</p>
-            <p class='answer'>답변대기</p>
+            <p class='answer ${dbdata[id - 1].답변}'>답변대기</p>
             </div>
         `)
 
@@ -53,7 +53,7 @@ db.collection('게시글목록').orderBy('date', 'desc').get().then((res) => {
             console.log(e.target.dataset.id);
 
             localStorage.setItem('제목', e.target.dataset.id)
-            location.href = `http://127.0.0.1:5500/%ED%85%8C%EC%8A%A4%ED%8A%B8%20%ED%8F%BC/%EC%A1%B0%EC%9D%B8%ED%94%BC%ED%94%8C%20%EB%A9%94%EC%9D%B8/QnA/detail.html?id=${e.target.dataset.id}`
+            location.href = `http://127.0.0.1:5500/detail.html?id=${e.target.dataset.id}`
         })
 
         return content;

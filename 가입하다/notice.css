@@ -369,6 +369,11 @@ button {
   background-color: gray;
 }
 
+.true {
+  background-color: #fdd100;
+  color: black;
+}
+
 /* footer start */
 footer {
   background-color: #2e2e2e;
