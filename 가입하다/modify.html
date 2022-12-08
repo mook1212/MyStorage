@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
+        </script>
+    <link rel="stylesheet" href="modify.css">
+
+</head>
+
+<body>
+
+    <div class="modify-container">
+        <!-- <img src="./img/qna_bg.png" alt=""> -->
+
+        <!-- <header class="test-header">
+            <h1 style="color: white;">Header</h1>
+        </header> -->
+
+        <header class="header">
+
+            <ul><img src="../조인피플img/logo.png"></ul>
+            <ul class="category">
+                <li><a href="#">COMPANY</a></li>
+
+                <div class="dropdown" style="float:right; text-align: center;">
+                    <button class="dropbtn drop-first">BUSINESS</button>
+                    <div class="dropdown-content drop-sec">
+                        <a href="#">메타버스추모관</a>
+                        <a href="#">Bnplo 쇼핑</a>
+                    </div>
+                </div>
+
+                <li><a href="#">VISIT</a></li>
+                <li><a href="#">NEWS</a></li>
+                <li><a href="#">Q&A</a></li>
+                <div class="dropdown" style="float:right; text-align: center;">
+                    <button class="dropbtn">KR</button>
+                    <div class="dropdown-content">
+                        <a href="#">한국어</a>
+                        <a href="./main-eng/index.html">English</a>
+                    </div>
+                </div>
+
+            </ul>
+
+        </header>
+
+        <div class="modify-header">
+            <p>
+                문의사항
+            </p>
+        </div>
+
+        <div class="modify-box">
+
+            <div class="modify-main">
+                <div class="modify-text">
+                    <p>게시글 수정</p>
+                </div>
+
+                <!-- 게시글 수정 작성 부분 -->
+                <div class="modify-content">
+
+                    <div class="modify-content-name modify-flex-item" style="border-bottom: 1px solid gray; ">
+                        <p style="width: 10%;">작성자 </p>
+                        <input id="modify-name" type="text" value="">
+                    </div>
+
+                    <div class="modify-content-header modify-flex-item" style="border-bottom: 1px solid gray; ">
+                        <p style="width: 10%;">제목 </p>
+                        <input id="modify-title" type="text">
+                    </div>
+
+                    <div id="" class="modify-content-pw modify-flex-item" style="border-bottom: 1px solid gray; ">
+                        <p style="width: 10%;">비밀번호 </p>
+                        <input id="modify-pw" type="password">
+                    </div>
+
+                    <div class="modify-content-text">
+                        <p style="width: 10%;">내용</p>
+                        <textarea name="" id="modify-text" cols="30" rows="10"></textarea>
+                    </div>
+
+                </div>
+
+
+                <!-- 게시글 수정완료 , 취소 버튼 -->
+                <div class="modify-btnbox">
+                    <div>
+                        <button id="modify-clear"
+                            style="width: 90px; height: 35px; background-color: #fdd100; font-size: 13px; font-weight: bold;">수정완료</button>
+                        <button id="modify-cancel"
+                            style="width: 90px; height: 35px; font-size: 13px; font-weight: bold;">취소</button>
+                    </div>
+                </div>
+
+
+                <!-- 수정 모달창  -->
+                <div class="update-modal-container">
+                    <div class='update-modal'>
+                        <p style="color: black;">비밀번호를 입력해주세요.</p>
+                        <input id="update-input" type="password" style="width: 200px; height: 40px; font-size: 17px;">
+
+                        <div class="update-btn">
+                            <button id="update-confirm">수정</button>
+                            <button id="update-cancel">취소</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <footer>
+
+            <div class="footer-container">
+
+                <h2><img src="../조인피플img/logo.png">주식회사 조인피플</h2>
+                <p>문의하기 <span><a href="#"><img src="../조인피플img/mail_icon.png" style="width: 30px;"></a></span></p>
+                <p>대표이사 <span>이두희</span></p>
+                <p>주소 <span>서울특별시 관악구 승방길 7, 203호</span></p>
+                <p>전화 <span>02-3473-3636</span></p>
+            </div>
+
+            <div class="copyright">
+                <p>COPYRIGHT 2022, JOIN PEOPLE ALL RIGHTS RESERVED.</p>
+            </div>
+        </footer>
+
+    </div>
+
+
+
+
+    <!-- 파이어베이스 연동 -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+
+    <script src="./modify.js"></script>
+
+
+</body>
+
+</html>

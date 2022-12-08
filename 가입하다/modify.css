@@ -5,25 +5,26 @@
   box-sizing: border-box;
 }
 
-a {
-  text-decoration: none;
-}
-
 html {
   width: 100%;
   height: 100%;
   font-family: "Noto Sans KR", sans-serif;
 }
 
-.detail-container {
+.modify-container {
   height: 100%;
   background-image: url("./img/qna_bg.png");
   background-size: cover;
 }
 
-.detail-main img {
+.modify-main img {
   width: 100%;
   height: 100%;
+}
+
+.test-header {
+  border: 3px solid red;
+  height: 10vh;
 }
 
 /* header start */
@@ -115,7 +116,7 @@ html {
 }
 
 /* header end */
-.detail-header {
+.modify-header {
   height: 500px;
   color: white;
   text-align: center;
@@ -126,13 +127,12 @@ html {
   font-weight: 500;
 }
 
-.detail-box {
+.modify-box {
   height: 100%;
   color: white;
-  font-family: "Noto Sans KR", sans-serif;
 }
 
-.detail-main {
+.modify-main {
   height: 100%;
   width: 70%;
   margin-left: 15%;
@@ -142,7 +142,7 @@ html {
 }
 
 @media (max-width: 800px) {
-  .detail-main {
+  .modify-main {
     height: 100%;
     width: 100%;
     margin: 0;
@@ -151,127 +151,64 @@ html {
     flex-direction: column;
   }
 }
-.post-box {
-  margin-top: 50px;
-}
-
-.info {
+.modify-text {
+  height: 100px;
   display: flex;
-  align-items: center;
-  border: 1px solid grey;
-  border-top: 2px solid white;
-  border-left: none;
-  border-right: none;
-  height: 60px;
-}
-
-.info:first-child {
-  padding-left: 60px;
-}
-
-.name {
-  display: flex;
-  margin-left: auto;
-  margin-right: 30px;
-}
-
-.text {
-  border: 1px solid grey;
-  border-bottom: 2px solid white;
-  border-left: none;
-  border-right: none;
-  padding: 60px;
-}
-
-.comment-box {
-  margin-top: 50px;
-  margin-bottom: 300px;
-}
-
-.comment-text {
-  border: 1px solid grey;
-  border-bottom: 2px solid white;
-  border-left: none;
-  border-right: none;
-  padding: 60px;
-}
-
-.detail-btn {
-  height: 50px;
-  display: flex;
-  margin-left: auto;
-}
-
-.detail-btn-box {
-  margin-top: 20px;
-  margin-right: 40px;
-}
-
-.detail-btn-box button {
-  width: 70px;
-  height: 35px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.detail-btn-box button:nth-child(2) {
-  background-color: rgb(173, 173, 173);
-  color: white;
-}
-
-.detail-btn-box button:nth-child(3) {
-  background-color: rgb(173, 173, 173);
-  color: white;
-}
-
-.pw-check {
-  width: 100%;
-  height: 100%;
-  border: 1px solid red;
-  position: absolute;
-}
-
-.delete-modal-container {
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  display: none;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  -webkit-animation: fadeInDown 1s;
-          animation: fadeInDown 1s;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.delete-modal {
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  top: 40%;
-  left: 50%;
-  width: 400px;
-  height: 200px;
-  background-color: white;
-  border-radius: 10px;
-  transform: translateX(-50%) translateY(-50%);
+  align-items: center;
+  font-size: 25px;
 }
-.delete-modal p {
-  height: 50px;
+
+.modify-content {
+  border: 1px solid white;
+  border-left: none;
+  border-right: none;
+  width: 100%;
 }
-.delete-modal .delete-btn {
-  height: 70px;
+
+.modify-flex-item {
   display: flex;
   align-items: center;
+  text-align: center;
+  height: 50px;
 }
-.delete-modal .delete-btn button {
-  margin: 10px;
-  height: 40px;
-  width: 80px;
+.modify-flex-item input {
+  height: 30px;
+  background-color: #3e3e3e;
+  border: 1px solid rgba(255, 255, 255, 0.582);
+  color: white;
+}
+
+.modify-content-header input {
+  width: 85%;
+}
+
+.modify-content-text {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.modify-content-text textarea {
+  width: 85%;
+  height: 400px;
+  margin: 30px 0 30px 0;
+  background-color: #3e3e3e;
+  border: 1px solid rgba(255, 255, 255, 0.582);
+  color: white;
+}
+
+.modify-btnbox {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+}
+.modify-btnbox div {
+  margin-top: 40px;
+}
+
+button {
   cursor: pointer;
-  font-weight: bold;
 }
 
 .update-modal-container {
@@ -394,7 +331,4 @@ footer {
   padding-bottom: 20px;
 }
 
-/* footer end */
-#admin-comment {
-  width: 100%;
-}/*# sourceMappingURL=detail.css.map */
+/* footer end *//*# sourceMappingURL=modify.css.map */

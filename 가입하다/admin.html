@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
+        </script>
+</head>
+
+<body>
+
+    <style>
+        button {
+            cursor: pointer;
+        }
+    </style>
+
+
+    <p>아이디 : <input id="id" type="text"></p>
+    <p>비밀번호 : <input id="pw" type="text"></p>
+
+    <button id="login">로그인</button>
+    <button id="logout">로그아웃</button>
+
+    <!-- 파이어베이스 연동 -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+
+    <script>
+
+        // 파이어베이스 설정
+        const firebaseConfig = {
+            apiKey: "AIzaSyBdp_8x4eixio0yS9APFYhCyuEWu7wTVd8",
+            authDomain: "test-6a214.firebaseapp.com",
+            projectId: "test-6a214",
+            storageBucket: "test-6a214.appspot.com",
+            messagingSenderId: "324318899114",
+            appId: "1:324318899114:web:b7e1cca282e307b2dc59d3",
+            measurementId: "G-R9Q0CYN08B"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore()
+
+        $('#login').click(() => {
+
+            let id = $('#id').val();
+            let pw = $('#pw').val();
+
+            firebase.auth().signInWithEmailAndPassword(id, pw).then((res) => {
+                // console.log(res.user.uid);
+                localStorage.setItem('admin',res.user.uid)
+                alert('관리자 로그인 성공')
+            })
+        })
+
+    </script>
+
+</body>
+
+</html>

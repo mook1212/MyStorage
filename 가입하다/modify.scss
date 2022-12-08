@@ -4,28 +4,30 @@
     box-sizing: border-box;
 }
 
-a {
-    text-decoration: none;
-}
-
 html {
     width: 100%;
     height: 100%;
     font-family: 'Noto Sans KR', sans-serif;
 }
 
-.detail-container {
+.modify-container {
     height: 100%;
     background-image: url('./img/qna_bg.png');
-    background-size: cover;
-    // background-repeat:no-repeat
+    background-size: cover // background-repeat : no-repeat;
 }
 
-.detail-main img {
+.modify-main img {
     width: 100%;
     height: 100%;
 }
 
+
+
+
+.test-header {
+    border: 3px solid red;
+    height: 10vh;
+}
 
 /* header start */
 
@@ -128,8 +130,9 @@ html {
 
 
 
+
 // Q&A 문의사항
-.detail-header {
+.modify-header {
     // height: 40vh;
     height: 500px;
     color: white;
@@ -142,29 +145,26 @@ html {
 }
 
 
-
-
 // 게시판 박스
-.detail-box {
+.modify-box {
     // border:  3px solid palegreen;
-    // height: 1000px;
+    // height: 55vh;
     height: 100%;
     color: white;
-    font-family: 'Noto Sans KR', sans-serif;
+
 }
 
-.detail-main {
+.modify-main {
     height: 100%;
     width: 70%;
     margin-left: 15%;
     background-color: black;
     display: flex;
     flex-direction: column;
-
 }
 
 @media (max-width: 800px) {
-    .detail-main {
+    .modify-main {
         height: 100%;
         width: 100%;
         margin: 0;
@@ -175,153 +175,79 @@ html {
     }
 }
 
-.post-box {
-    // border: 1px solid pink;
-    // height: 80%;
-    margin-top: 50px;
+.modify-text {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
 }
 
-.info {
+
+// 게시글 작성 부분
+.modify-content {
+    border: 1px solid white;
+    border-left: none;
+    border-right: none;
+    width: 100%;
+    // height: 75%;
+}
+
+.modify-flex-item {
     display: flex;
     align-items: center;
-    border: 1px solid grey;
-    border-top: 2px solid white;
-    border-left: none;
-    border-right: none;
-    height: 60px;
-}
-
-.info:first-child {
-    padding-left: 60px;
-}
-
-.name {
-    display: flex;
-    margin-left: auto;
-    margin-right: 30px;
-}
-
-.text {
-    // height: 600px;
-    border: 1px solid grey;
-    border-bottom: 2px solid white;
-    border-left: none;
-    border-right: none;
-    padding: 60px;
-}
-
-
-// 댓글
-
-.comment-box {
-    margin-top: 50px;
-    margin-bottom: 300px;
-}
-.comment-text {
-    // height: 600px;
-    border: 1px solid grey;
-    border-bottom: 2px solid white;
-    border-left: none;
-    border-right: none;
-    padding: 60px;
-}
-
-.text p {
-    // padding: 60px;
-}
-
-
-
-.detail-btn {
-    // height: 350px;
+    text-align: center;
     height: 50px;
+
+    input {
+        height: 30px;
+        background-color: #3e3e3e;
+        border: 1px solid rgba(255, 255, 255, 0.582);
+
+        // border: 1px solid white;
+
+        color: white;
+        // z-index: 1;
+    }
+}
+
+.modify-content-header input {
+    width: 85%;
+}
+
+.modify-content-text {
     display: flex;
-    margin-left: auto;
+    align-items: center;
+    text-align: center;
 }
 
-.detail-btn-box {
-    margin-top: 20px;
-    margin-right: 40px;
+.modify-content-text textarea {
+    width: 85%;
+    height: 400px;
+    margin: 30px 0 30px 0;
+    background-color: #3e3e3e;
+    border: 1px solid rgba(255, 255, 255, 0.582);
+    color: white;
 }
 
-.detail-btn-box button {
-    width: 70px;
-    height: 35px;
-    font-weight: bold;
+
+// 작성완료 / 목록 버튼
+.modify-btnbox {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    
+    div {
+        margin-top: 40px;
+    }
+}
+
+button {
     cursor: pointer;
 }
 
-.detail-btn-box button:nth-child(2) {
-    background-color: rgba(173, 173, 173);
-    color: white;
-}
 
-.detail-btn-box button:nth-child(3) {
-    background-color: rgba(173, 173, 173);
-    color: white;
-}
-
-
-.pw-check {
-    width: 100%;
-    height: 100%;
-    border: 1px solid red;
-    position: absolute;
-}
-
-
-
-.delete-modal-container {
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    display: none;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    animation: fadeInDown 1s;
-
-
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.delete-modal {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    top: 40%;
-    left: 50%;
-
-    width: 400px;
-    height: 200px;
-
-    background-color: white;
-    border-radius: 10px;
-
-    transform: translateX(-50%) translateY(-50%);
-
-    p {
-        height: 50px;
-    }
-
-    .delete-btn {
-        height: 70px;
-        display: flex;
-        // justify-content: center;
-        align-items: center;
-    }
-    .delete-btn button {
-        margin: 10px;
-        height: 40px;
-        width: 80px;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-}
-
+// 수정 모달창
 .update-modal-container {
     height: 100%;
     width: 100%;
@@ -389,7 +315,6 @@ html {
 
 
 
-
 /* footer start */
 
 footer {
@@ -448,13 +373,3 @@ footer {
 }
 
 /* footer end */
-
-
-
-
-// 관리자 권한
-
-#admin-comment {
-    width: 100%;
-    // height:0px;
-}
